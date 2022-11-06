@@ -29,6 +29,12 @@ const ChooseHand = (props) => {
           handleClick={props.handleClick}
         />
       </div>
+
+      <img
+        src={images.backgrounds.bgTriangle}
+        alt=""
+        className="triangle-img"
+      />
     </StyledChooseHand>
   );
 };

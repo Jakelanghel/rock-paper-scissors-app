@@ -34,6 +34,9 @@ export const GlobalStyles = createGlobalStyle`
         /* BACKGROUND  */
         --radialgradient-1: hsl(214, 47%, 23%);
         --radialgradient-2: hsl(237, 49%, 15%);
+
+        /* #1f3756 */
+        /* #141539 */
         
 
      
@@ -41,12 +44,21 @@ export const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
+        font-family: 'Barlow Semi Condensed', sans-serif;
         margin: 0;
         padding: 0;
     }
 
     body {
         font-family: 'Barlow Semi Condensed', sans-serif;
+    }
+
+    .container-app {
+        height: 100vh;
+        width: 100vw;
+        background: rgb(31,55,86);
+        background: radial-gradient(circle at top, rgba(31,55,86,1) 53%, rgba(20,21,57,1) 98%);
+        
     }
 
     .rock-bg {

@@ -1,11 +1,12 @@
 import React from "react";
 import { StyledScoreBoard } from "./ScoreBoard.Styled";
+import { images } from "../../constants/images";
 
 const ScoreBoard = () => {
   return (
     <StyledScoreBoard>
-      <div className="container-title">
-        <h1>rock paper scissors</h1>
+      <div className="container-logo">
+        <img src={images.logos.logo} alt="" className="logo" />
       </div>
 
       <div className="container-score">

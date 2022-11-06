@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHand = styled.div`
-  width: 175px;
-  height: 175px;
+  width: 140px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +11,8 @@ export const StyledHand = styled.div`
 
   .hand-bg {
     background-color: var(--white);
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     display: flex;
     justify-content: center;

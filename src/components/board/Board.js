@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { StyledBoard } from "./StyledBoard";
+import ScoreBoard from "../score-board/ScoreBoard";
 import ChooseHand from "../chooseHand/ChooseHand";
 import { StyledRulesBtn } from "../rules/RulesBtn.Styled";
+import ShowChoice from "../show-choice/ShowChoice";
 
 const Board = () => {
-  const [playerThrow, setPlayerThrow] = useState("");
-  console.log(playerThrow);
+  const randNum = Math.floor(Math.random() * 3);
+  const optionsArr = ["rock", "paper", "scissors"];
+  const computerHand = optionsArr[randNum];
 
-  const getHand = (classArr) => {
+  const [playerThrow, setPlayerThrow] = useState("");
+  const [computerThrow, setComputerThrow] = useState(computerHand);
+
+  const getHand = (classArr, optionsArr) => {
     const options = ["rock", "paper", "scissors"];
     let hand = null;
     classArr.forEach((className) => {
@@ -25,7 +31,20 @@ const Board = () => {
   };
   return (
     <StyledBoard>
-      <ChooseHand handleClick={handleClick} />
+      <ScoreBoard />
+
+      {!playerThrow ? (
+        <ChooseHand handleClick={handleClick} />
+      ) : (
+        <ShowChoice
+          playerHand={playerThrow}
+          bgClass={`${playerThrow}-bg`}
+          compHand={computerThrow}
+          compBgClass={`${computerThrow}-bg`}
+        />
+      )}
+
+      {/* <ChooseHand handleClick={handleClick} /> */}
       <StyledRulesBtn>Rules</StyledRulesBtn>
     </StyledBoard>
   );
