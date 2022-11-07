@@ -42,6 +42,10 @@ export const GlobalStyles = createGlobalStyle`
      
     }
 
+    html {
+        overflow: hidden;
+    }
+
     * {
         box-sizing: border-box;
         font-family: 'Barlow Semi Condensed', sans-serif;

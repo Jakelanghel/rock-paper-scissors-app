@@ -4,7 +4,6 @@ export const StyledChooseHand = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  /* margin-top: 6rem; */
   position: relative;
 
   .container-flex {

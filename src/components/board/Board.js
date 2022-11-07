@@ -6,12 +6,13 @@ import { StyledRulesBtn } from "../rules/RulesBtn.Styled";
 import ShowChoice from "../show-choice/ShowChoice";
 
 const Board = () => {
-  const randNum = Math.floor(Math.random() * 3);
-  const optionsArr = ["rock", "paper", "scissors"];
-  const computerHand = optionsArr[randNum];
+  const [gameData, setGameData] = useState({
+    options: ["rock", "paper", "scissors"],
 
-  const [playerThrow, setPlayerThrow] = useState("");
-  const [computerThrow, setComputerThrow] = useState(computerHand);
+    playerThrow: null,
+    computerThrow: null,
+    endgame: null,
+  });
 
   const getHand = (classArr, optionsArr) => {
     const options = ["rock", "paper", "scissors"];
@@ -24,27 +25,64 @@ const Board = () => {
     return hand;
   };
 
+  const getWinner = () => {
+    if (gameData.playerThrow === gameData.computerThrow) {
+      return "draw";
+    } else if (gameData.playerThrow === "rock") {
+      if (gameData.computerThrow === "scissors") {
+        return "you win";
+      } else {
+        return "you loose";
+      }
+    } else if (gameData.playerThrow === "paper") {
+      if (gameData.computerThrow === "rock") {
+        return "you win";
+      } else {
+        return "you loose";
+      }
+    } else if (gameData.playerThrow === "scissors") {
+      if (gameData.computerThrow === "paper") {
+        return "you win";
+      } else {
+        return "you loose";
+      }
+    }
+  };
+
+  const getComputerThrow = () => {
+    const randNum = Math.floor(Math.random() * 3);
+    const optionsArr = ["rock", "paper", "scissors"];
+    const computerHand = optionsArr[randNum];
+    return computerHand;
+  };
+
   const handleClick = (e) => {
     const classArr = Array.from(e.target.classList);
-    const hand = getHand(classArr);
-    setPlayerThrow(hand);
+    const playerHand = getHand(classArr);
+    const computerHand = getComputerThrow();
+    const outcome = getWinner();
+    setGameData((oldData) => ({
+      ...oldData,
+      playerThrow: playerHand,
+      computerThrow: computerHand,
+      endgame: outcome,
+    }));
   };
   return (
     <StyledBoard>
       <ScoreBoard />
 
-      {!playerThrow ? (
+      {!gameData.playerThrow ? (
         <ChooseHand handleClick={handleClick} />
       ) : (
         <ShowChoice
-          playerHand={playerThrow}
-          bgClass={`${playerThrow}-bg`}
-          compHand={computerThrow}
-          compBgClass={`${computerThrow}-bg`}
+          playerHand={gameData.playerThrow}
+          bgClass={`${gameData.playerThrow}-bg`}
+          compHand={gameData.computerThrow}
+          compBgClass={`${gameData.computerThrow}-bg`}
+          msg={gameData.endgame}
         />
       )}
-
-      {/* <ChooseHand handleClick={handleClick} /> */}
       <StyledRulesBtn>Rules</StyledRulesBtn>
     </StyledBoard>
   );

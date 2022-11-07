@@ -3,6 +3,7 @@ import Hand from "../hand/Hand";
 import { StyledShowChoice } from "./ShowChoice.Styled";
 import { images } from "../../constants/images";
 import { motion } from "framer-motion";
+import GameOverModal from "../game-over/GameOverModal";
 
 const hands = images.hands;
 
@@ -13,18 +14,6 @@ const compHandVariants = {
   visible: {
     opacity: 1,
     transition: { delay: 3 },
-    position: "absolute",
-  },
-};
-
-const gameOverVariants = {
-  hidden: {
-    opacity: 0,
-    x: "100vw",
-  },
-  visible: {
-    opacity: 1,
-    transition: { type: "spring", delay: 3 },
     position: "absolute",
   },
 };
@@ -63,15 +52,7 @@ const ShowChoice = (props) => {
         </div>
       </div>
 
-      <motion.div
-        variants={gameOverVariants}
-        initial="hidden"
-        animate="visible"
-        className="container-game-over"
-      >
-        <p className="game-over-txt">you {"lose"}</p>
-        <button>play again</button>
-      </motion.div>
+      <GameOverModal msg={props.msg} />
     </StyledShowChoice>
   );
 };
