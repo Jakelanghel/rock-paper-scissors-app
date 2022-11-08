@@ -3,6 +3,7 @@ import { StyledGameOverModal } from "./GameOverModal.Styled";
 import { motion } from "framer-motion";
 
 const GameOverModal = (props) => {
+  // console.log(props.playAgain);
   const gameOverVariants = {
     hidden: {
       opacity: 0,
@@ -10,7 +11,7 @@ const GameOverModal = (props) => {
     },
     visible: {
       opacity: 1,
-      transition: { type: "spring", delay: 5 },
+      transition: { type: "spring", delay: 1 },
       x: 0,
     },
   };
@@ -23,7 +24,7 @@ const GameOverModal = (props) => {
         className="container-game-over"
       >
         <p className="game-over-txt">{props.msg}</p>
-        <button>play again</button>
+        <button onClick={props.playAgain}>play again</button>
       </motion.div>
     </StyledGameOverModal>
   );

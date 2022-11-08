@@ -2,7 +2,7 @@ import React from "react";
 import { StyledScoreBoard } from "./ScoreBoard.Styled";
 import { images } from "../../constants/images";
 
-const ScoreBoard = () => {
+const ScoreBoard = (props) => {
   return (
     <StyledScoreBoard>
       <div className="container-logo">
@@ -11,7 +11,7 @@ const ScoreBoard = () => {
 
       <div className="container-score">
         <p className="score">
-          score<span>12</span>
+          score<span>{props.score}</span>
         </p>
       </div>
     </StyledScoreBoard>

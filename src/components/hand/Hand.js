@@ -1,8 +1,6 @@
 import React from "react";
 import { StyledHand } from "./Hand.Styled";
 
-// replace apt txt with the had the you choose
-
 const Hand = (props) => {
   return (
     <StyledHand

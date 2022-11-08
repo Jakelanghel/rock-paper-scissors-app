@@ -12,47 +12,61 @@ const Board = () => {
     playerThrow: null,
     computerThrow: null,
     endgame: null,
+    score: 0,
   });
 
-  const getHand = (classArr, optionsArr) => {
-    const options = ["rock", "paper", "scissors"];
+  const getHand = (classArr) => {
     let hand = null;
     classArr.forEach((className) => {
-      options.forEach((option) => {
+      gameData.options.forEach((option) => {
         if (className === option) hand = option;
       });
     });
     return hand;
   };
 
-  const getWinner = () => {
-    if (gameData.playerThrow === gameData.computerThrow) {
-      return "draw";
-    } else if (gameData.playerThrow === "rock") {
-      if (gameData.computerThrow === "scissors") {
-        return "you win";
+  const getWinner = (playerHand, computerHand) => {
+    const data = {};
+    if (playerHand === computerHand) {
+      data.msg = "draw";
+      data.x = 0;
+      return data;
+    } else if (playerHand === "rock") {
+      if (computerHand === "scissors") {
+        data.msg = "you win";
+        data.x = 1;
+        return data;
       } else {
-        return "you loose";
+        data.msg = "you loose";
+        data.x = -1;
+        return data;
       }
-    } else if (gameData.playerThrow === "paper") {
-      if (gameData.computerThrow === "rock") {
-        return "you win";
+    } else if (playerHand === "paper") {
+      if (computerHand === "rock") {
+        data.msg = "you win";
+        data.x = 1;
+        return data;
       } else {
-        return "you loose";
+        data.msg = "you lose";
+        data.x = -1;
+        return data;
       }
-    } else if (gameData.playerThrow === "scissors") {
-      if (gameData.computerThrow === "paper") {
-        return "you win";
+    } else if (playerHand === "scissors") {
+      if (computerHand === "paper") {
+        data.msg = "you win";
+        data.x = 1;
+        return data;
       } else {
-        return "you loose";
+        data.msg = "you loose";
+        data.x = -1;
+        return data;
       }
     }
   };
 
   const getComputerThrow = () => {
     const randNum = Math.floor(Math.random() * 3);
-    const optionsArr = ["rock", "paper", "scissors"];
-    const computerHand = optionsArr[randNum];
+    const computerHand = gameData.options[randNum];
     return computerHand;
   };
 
@@ -60,17 +74,31 @@ const Board = () => {
     const classArr = Array.from(e.target.classList);
     const playerHand = getHand(classArr);
     const computerHand = getComputerThrow();
-    const outcome = getWinner();
+    const data = getWinner(playerHand, computerHand);
+    const score = gameData.score + data.x;
     setGameData((oldData) => ({
       ...oldData,
       playerThrow: playerHand,
       computerThrow: computerHand,
-      endgame: outcome,
+      endgame: data.msg,
+      score: score,
     }));
   };
+
+  const playAgain = () => {
+    console.log("X");
+    setGameData((oldData) => ({
+      ...oldData,
+      playerThrow: null,
+      computerThrow: null,
+      endgame: null,
+    }));
+  };
+
+  console.log(gameData);
   return (
     <StyledBoard>
-      <ScoreBoard />
+      <ScoreBoard score={gameData.score} />
 
       {!gameData.playerThrow ? (
         <ChooseHand handleClick={handleClick} />
@@ -81,6 +109,7 @@ const Board = () => {
           compHand={gameData.computerThrow}
           compBgClass={`${gameData.computerThrow}-bg`}
           msg={gameData.endgame}
+          playAgain={playAgain}
         />
       )}
       <StyledRulesBtn>Rules</StyledRulesBtn>

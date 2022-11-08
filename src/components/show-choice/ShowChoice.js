@@ -13,13 +13,13 @@ const compHandVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { delay: 3 },
+    transition: { delay: 1 },
     position: "absolute",
   },
 };
 
 const ShowChoice = (props) => {
-  const x = "lose";
+  console.log(props.playAgain);
   return (
     <StyledShowChoice>
       <div className="container-hands">
@@ -28,6 +28,7 @@ const ShowChoice = (props) => {
             bgClass={props.bgClass}
             hand={props.hand}
             img={hands[props.playerHand]}
+            handleClick={() => console.log("X")}
           />
           <p>you picked</p>
         </div>
@@ -45,6 +46,7 @@ const ShowChoice = (props) => {
               bgClass={props.compBgClass}
               hand={props.compHand}
               img={hands[props.compHand]}
+              handleClick={() => console.log("X")}
             />
           </motion.div>
 
@@ -52,7 +54,7 @@ const ShowChoice = (props) => {
         </div>
       </div>
 
-      <GameOverModal msg={props.msg} />
+      <GameOverModal msg={props.msg} playAgain={props.playAgain} />
     </StyledShowChoice>
   );
 };

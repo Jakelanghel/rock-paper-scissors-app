@@ -38,7 +38,7 @@ export const StyledShowChoice = styled.div`
   }
 
   p {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: var(--white);
     letter-spacing: 1px;
     text-transform: uppercase;

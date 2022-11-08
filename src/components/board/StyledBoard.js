@@ -7,6 +7,5 @@ export const StyledBoard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding: 2rem 0;
 `;

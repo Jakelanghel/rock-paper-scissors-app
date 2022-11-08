@@ -43,7 +43,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     * {
