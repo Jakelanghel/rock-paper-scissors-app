@@ -18,6 +18,7 @@ export const StyledShowChoice = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .empty {
@@ -26,13 +27,10 @@ export const StyledShowChoice = styled.div`
     border-radius: 50%;
     background-color: var(--radialgradient-2);
     opacity: 0.4;
+    margin-top: 1.5rem;
   }
 
-  .computer {
-    position: relative;
-  }
-
-  .container-comp-hand {
+  .container-hand {
     position: absolute;
     top: 0;
   }

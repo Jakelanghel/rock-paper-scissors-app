@@ -1,0 +1,23 @@
+import styled from "styled-components";
+
+export const StyledRulesModal = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4rem 0;
+
+  background: var(--white);
+
+  h1 {
+    text-transform: uppercase;
+  }
+`;

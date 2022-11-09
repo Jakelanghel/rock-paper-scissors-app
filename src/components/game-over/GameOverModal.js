@@ -3,7 +3,6 @@ import { StyledGameOverModal } from "./GameOverModal.Styled";
 import { motion } from "framer-motion";
 
 const GameOverModal = (props) => {
-  // console.log(props.playAgain);
   const gameOverVariants = {
     hidden: {
       opacity: 0,
@@ -11,7 +10,7 @@ const GameOverModal = (props) => {
     },
     visible: {
       opacity: 1,
-      transition: { type: "spring", delay: 1 },
+      transition: { type: "spring", delay: 3 },
       x: 0,
     },
   };

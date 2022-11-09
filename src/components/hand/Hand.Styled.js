@@ -18,4 +18,19 @@ export const StyledHand = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cyan);
+    border-radius: 50%;
+    /* position: absolute; */
+    top: 0;
+  }
+
+  .circle-1 {
+    width: 300px;
+    height: 300px;
+  }
 `;

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { StyledBoard } from "./StyledBoard";
 import ScoreBoard from "../score-board/ScoreBoard";
 import ChooseHand from "../chooseHand/ChooseHand";
-import { StyledRulesBtn } from "../rules/RulesBtn.Styled";
+import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
 import ShowChoice from "../show-choice/ShowChoice";
+import RulesModal from "../rules/rules-modal/RulesModal";
 
 const Board = () => {
   const [gameData, setGameData] = useState({
@@ -13,6 +14,7 @@ const Board = () => {
     computerThrow: null,
     endgame: null,
     score: 0,
+    rulesOpen: false,
   });
 
   const getHand = (classArr) => {
@@ -26,40 +28,28 @@ const Board = () => {
   };
 
   const getWinner = (playerHand, computerHand) => {
-    const data = {};
+    const winData = { msg: "you win", x: 1 };
+    const loseData = { msg: "you lose", x: -1 };
+    const drawData = { msg: "draw", x: 0 };
     if (playerHand === computerHand) {
-      data.msg = "draw";
-      data.x = 0;
-      return data;
+      return drawData;
     } else if (playerHand === "rock") {
       if (computerHand === "scissors") {
-        data.msg = "you win";
-        data.x = 1;
-        return data;
+        return winData;
       } else {
-        data.msg = "you loose";
-        data.x = -1;
-        return data;
+        return loseData;
       }
     } else if (playerHand === "paper") {
       if (computerHand === "rock") {
-        data.msg = "you win";
-        data.x = 1;
-        return data;
+        return winData;
       } else {
-        data.msg = "you lose";
-        data.x = -1;
-        return data;
+        return loseData;
       }
     } else if (playerHand === "scissors") {
       if (computerHand === "paper") {
-        data.msg = "you win";
-        data.x = 1;
-        return data;
+        return winData;
       } else {
-        data.msg = "you loose";
-        data.x = -1;
-        return data;
+        return loseData;
       }
     }
   };
@@ -81,12 +71,17 @@ const Board = () => {
       playerThrow: playerHand,
       computerThrow: computerHand,
       endgame: data.msg,
-      score: score,
     }));
+
+    setTimeout(() => {
+      setGameData((oldData) => ({
+        ...oldData,
+        score: score,
+      }));
+    }, 3000);
   };
 
   const playAgain = () => {
-    console.log("X");
     setGameData((oldData) => ({
       ...oldData,
       playerThrow: null,
@@ -95,7 +90,13 @@ const Board = () => {
     }));
   };
 
-  console.log(gameData);
+  const toggleRules = () => {
+    setGameData((oldData) => ({
+      ...oldData,
+      showRules: !oldData.showRules,
+    }));
+  };
+
   return (
     <StyledBoard>
       <ScoreBoard score={gameData.score} />
@@ -106,13 +107,14 @@ const Board = () => {
         <ShowChoice
           playerHand={gameData.playerThrow}
           bgClass={`${gameData.playerThrow}-bg`}
-          compHand={gameData.computerThrow}
           compBgClass={`${gameData.computerThrow}-bg`}
+          compHand={gameData.computerThrow}
           msg={gameData.endgame}
           playAgain={playAgain}
         />
       )}
-      <StyledRulesBtn>Rules</StyledRulesBtn>
+      <StyledRulesBtn onClick={toggleRules}>Rules</StyledRulesBtn>
+      {gameData.showRules && <RulesModal handleClick={toggleRules} />}
     </StyledBoard>
   );
 };

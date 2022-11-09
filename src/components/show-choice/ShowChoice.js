@@ -10,43 +10,65 @@ const hands = images.hands;
 const compHandVariants = {
   hidden: {
     opacity: 0,
+    x: "100vw",
   },
   visible: {
     opacity: 1,
     transition: { delay: 1 },
     position: "absolute",
+    x: 0,
+  },
+};
+
+const playerVariants = {
+  hidden: {
+    opacity: 0,
+    x: "-100vw",
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 1 },
+    position: "absolute",
+    x: 0,
   },
 };
 
 const ShowChoice = (props) => {
-  console.log(props.playAgain);
   return (
     <StyledShowChoice>
       <div className="container-hands">
-        <div className="player container">
-          <Hand
-            bgClass={props.bgClass}
-            hand={props.hand}
-            img={hands[props.playerHand]}
-            handleClick={() => console.log("X")}
-          />
+        <div className="container">
+          <div className="empty"></div>
+
+          <motion.div
+            variants={playerVariants}
+            initial="hidden"
+            animate="visible"
+            className="container-hand"
+          >
+            <Hand
+              bgClass={props.bgClass}
+              hand={props.hand}
+              img={hands[props.playerHand]}
+            />
+          </motion.div>
+
           <p>you picked</p>
         </div>
 
-        <div className="computer container">
+        <div className="container">
           <div className="empty"></div>
 
           <motion.div
             variants={compHandVariants}
             initial="hidden"
             animate="visible"
-            className="container-comp-hand"
+            className="container-hand"
           >
             <Hand
               bgClass={props.compBgClass}
               hand={props.compHand}
               img={hands[props.compHand]}
-              handleClick={() => console.log("X")}
             />
           </motion.div>
 
