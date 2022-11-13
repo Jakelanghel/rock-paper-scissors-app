@@ -15,6 +15,7 @@ const Board = () => {
     endgame: null,
     score: 0,
     rulesOpen: false,
+    winner: null,
   });
 
   const getHand = (classArr) => {
@@ -28,9 +29,9 @@ const Board = () => {
   };
 
   const getWinner = (playerHand, computerHand) => {
-    const winData = { msg: "you win", x: 1 };
-    const loseData = { msg: "you lose", x: -1 };
-    const drawData = { msg: "draw", x: 0 };
+    const winData = { msg: "you win", x: 1, winner: "p" };
+    const loseData = { msg: "you lose", x: -1, winner: "c" };
+    const drawData = { msg: "draw", x: 0, winner: "d" };
     if (playerHand === computerHand) {
       return drawData;
     } else if (playerHand === "rock") {
@@ -65,12 +66,14 @@ const Board = () => {
     const playerHand = getHand(classArr);
     const computerHand = getComputerThrow();
     const data = getWinner(playerHand, computerHand);
+    console.log(data.winner);
     const score = gameData.score + data.x;
     setGameData((oldData) => ({
       ...oldData,
       playerThrow: playerHand,
       computerThrow: computerHand,
       endgame: data.msg,
+      winner: data.winner,
     }));
 
     setTimeout(() => {
@@ -87,6 +90,7 @@ const Board = () => {
       playerThrow: null,
       computerThrow: null,
       endgame: null,
+      winner: null,
     }));
   };
 
@@ -111,6 +115,7 @@ const Board = () => {
           compHand={gameData.computerThrow}
           msg={gameData.endgame}
           playAgain={playAgain}
+          winner={gameData.winner}
         />
       )}
       <StyledRulesBtn onClick={toggleRules}>Rules</StyledRulesBtn>

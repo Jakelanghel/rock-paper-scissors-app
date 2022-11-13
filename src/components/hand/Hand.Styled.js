@@ -6,8 +6,8 @@ export const StyledHand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
+  z-index: 100;
 
   .hand-bg {
     background-color: var(--white);
@@ -17,20 +17,36 @@ export const StyledHand = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
   }
 
-  .circle {
+  .ring-1 {
+    width: 185px;
+    height: 185px;
+  }
+
+  .ring {
+    position: absolute;
+    z-index: 50;
+    right: 50%;
+    transform: translateX(50%);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cyan);
     border-radius: 50%;
-    /* position: absolute; */
-    top: 0;
+    background-color: var(--winner-bg);
   }
 
-  .circle-1 {
-    width: 300px;
-    height: 300px;
+  .ring-2 {
+    width: 245px;
+    height: 245px;
+    z-index: 2;
+  }
+
+  .ring-3 {
+    width: 310px;
+    height: 310px;
+    z-index: 1;
   }
 `;

@@ -14,8 +14,8 @@ const compHandVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { delay: 1 },
-    position: "absolute",
+    transition: { delay: 2 },
+    // position: "absolute",
     x: 0,
   },
 };
@@ -28,7 +28,7 @@ const playerVariants = {
   visible: {
     opacity: 1,
     transition: { delay: 1 },
-    position: "absolute",
+    // position: "absolute",
     x: 0,
   },
 };
@@ -50,10 +50,10 @@ const ShowChoice = (props) => {
               bgClass={props.bgClass}
               hand={props.hand}
               img={hands[props.playerHand]}
+              winner={props.winner === "p" ? true : false}
             />
+            <p>you picked</p>
           </motion.div>
-
-          <p>you picked</p>
         </div>
 
         <div className="container">
@@ -69,10 +69,10 @@ const ShowChoice = (props) => {
               bgClass={props.compBgClass}
               hand={props.compHand}
               img={hands[props.compHand]}
+              winner={props.winner === "c" ? true : false}
             />
+            <p>the house picked</p>
           </motion.div>
-
-          <p>the house picked</p>
         </div>
       </div>
 

@@ -35,6 +35,9 @@ export const GlobalStyles = createGlobalStyle`
         --radialgradient-1: hsl(214, 47%, 23%);
         --radialgradient-2: hsl(237, 49%, 15%);
 
+        /* WINNER BACKGROUND */
+        --winner-bg: rgba(255, 255, 255, 0.03);
+
         /* #1f3756 */
         /* #141539 */
         
@@ -58,10 +61,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .container-app {
-        height: 100vh;
+        /* min-height: 100vh; */
         width: 100vw;
         background: rgb(31,55,86);
-        background: radial-gradient(circle at top, rgba(31,55,86,1) 53%, rgba(20,21,57,1) 98%);
+        background: radial-gradient(circle at top, rgba(29, 48, 80, 1) 53%, rgba(20,21,57,1) 98%);
         
     }
 

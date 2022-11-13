@@ -13,33 +13,34 @@ export const StyledShowChoice = styled.div`
 
   .container {
     width: 45%;
-    min-height: 185px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: relative;
   }
 
   .empty {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 50%;
     background-color: var(--radialgradient-2);
-    opacity: 0.4;
-    margin-top: 1.5rem;
+    opacity: 0.3;
+    position: absolute;
   }
 
   .container-hand {
-    position: absolute;
+    position: relative;
     top: 0;
   }
 
   p {
+    text-align: center;
     font-size: 1rem;
     color: var(--white);
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-top: auto;
+    margin-top: 1.5rem;
   }
 `;

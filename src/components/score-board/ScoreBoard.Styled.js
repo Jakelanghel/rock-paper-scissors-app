@@ -10,7 +10,7 @@ export const StyledScoreBoard = styled.div`
   border: solid 3px var(--header-outline);
   border-radius: 7px;
   padding: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 
   .logo {
     width: 100px;
