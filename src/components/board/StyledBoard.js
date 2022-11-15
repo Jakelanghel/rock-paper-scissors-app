@@ -6,5 +6,5 @@ export const StyledBoard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem;
 `;

@@ -3,17 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
     :root {
-        /* PRIMARY */
-        /* --scissors-gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-        --paper-gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-        --rock-gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-        --lizard-gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
-        --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%); */
-
-        --white: #EEEEEE;
-
-        --gray: rgb(221, 221, 221),
-
+        /* HAND COLORS */
         --scissors-gradient-1: hsl(39, 89%, 49%);
         --scissors-gradient-2: hsl(40, 84%, 53%);
         --paper-gradient-1: hsl(230, 89%, 62%);
@@ -30,10 +20,13 @@ export const GlobalStyles = createGlobalStyle`
         --dark-text: hsl(229, 25%, 31%);
         --score-text: hsl(229, 64%, 46%);
         --header-outline: hsl(217, 16%, 45%);
+        --white: #EEEEEE;
+        --gray: rgb(221, 221, 221),
 
         /* BACKGROUND  */
         --radialgradient-1: hsl(214, 47%, 23%);
         --radialgradient-2: hsl(237, 49%, 15%);
+        --backdrop: rgba(0,0,0, .5);
 
         /* WINNER BACKGROUND */
         --winner-bg: rgba(255, 255, 255, 0.03);

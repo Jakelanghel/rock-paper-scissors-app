@@ -14,4 +14,8 @@ export const StyledRulesBtn = styled.button`
 
   border: solid 1px var(--white);
   border-radius: 10px;
+
+  @media screen and (min-width: 950px) {
+    align-self: flex-end;
+  }
 `;

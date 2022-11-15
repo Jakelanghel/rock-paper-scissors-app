@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledScoreBoard = styled.div`
   width: 85%;
-  max-width: 500px;
+  max-width: 700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,6 @@ export const StyledScoreBoard = styled.div`
   border: solid 3px var(--header-outline);
   border-radius: 7px;
   padding: 1rem;
-  margin-bottom: 6rem;
 
   .logo {
     width: 100px;

@@ -20,11 +20,6 @@ export const StyledHand = styled.div`
     z-index: 100;
   }
 
-  .ring-1 {
-    width: 185px;
-    height: 185px;
-  }
-
   .ring {
     position: absolute;
     z-index: 50;
@@ -38,15 +33,51 @@ export const StyledHand = styled.div`
     background-color: var(--winner-bg);
   }
 
+  .ring-1 {
+    width: 175px;
+    height: 175px;
+  }
+
   .ring-2 {
-    width: 245px;
-    height: 245px;
+    width: 225px;
+    height: 225px;
     z-index: 2;
   }
 
   .ring-3 {
-    width: 310px;
-    height: 310px;
+    width: 285px;
+    height: 285px;
     z-index: 1;
+  }
+
+  @media screen and (min-width: 950px) {
+    width: 225px;
+    height: 225px;
+
+    .hand-bg {
+      width: 180px;
+      height: 180px;
+    }
+
+    .hand-img {
+      width: 75px;
+    }
+
+    .ring-1 {
+      width: 335px;
+      height: 335px;
+    }
+
+    .ring-2 {
+      width: 425px;
+      height: 425px;
+      z-index: 2;
+    }
+
+    .ring-3 {
+      width: 550px;
+      height: 550px;
+      z-index: 1;
+    }
   }
 `;

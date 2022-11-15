@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { StyledBoard } from "./StyledBoard";
+
 import ScoreBoard from "../score-board/ScoreBoard";
 import ChooseHand from "../chooseHand/ChooseHand";
-import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
 import ShowChoice from "../show-choice/ShowChoice";
 import RulesModal from "../rules/rules-modal/RulesModal";
+
+import { StyledBoard } from "./StyledBoard";
+import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
+import { StyledBackDrop } from "../rules/rules-modal/StyledBackdrop";
 
 const Board = () => {
   const [gameData, setGameData] = useState({
@@ -119,7 +122,11 @@ const Board = () => {
         />
       )}
       <StyledRulesBtn onClick={toggleRules}>Rules</StyledRulesBtn>
-      {gameData.showRules && <RulesModal handleClick={toggleRules} />}
+      {gameData.showRules && (
+        <StyledBackDrop>
+          <RulesModal handleClick={toggleRules} />
+        </StyledBackDrop>
+      )}
     </StyledBoard>
   );
 };

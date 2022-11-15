@@ -20,4 +20,28 @@ export const StyledRulesModal = styled.div`
   h1 {
     text-transform: uppercase;
   }
+
+  @media screen and (min-width: 950px) {
+    width: 400px;
+    height: 450px;
+    padding: 3rem;
+    align-items: flex-start;
+    border-radius: 10px;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    .close-icon {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+    }
+
+    .img-container {
+      align-self: center;
+    }
+  }
 `;

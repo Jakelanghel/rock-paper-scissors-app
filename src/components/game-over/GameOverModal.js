@@ -1,19 +1,33 @@
 import React from "react";
 import { StyledGameOverModal } from "./GameOverModal.Styled";
 import { motion } from "framer-motion";
+import { useIsLarge } from "../../hooks/UseMediaQuery";
 
 const GameOverModal = (props) => {
-  const gameOverVariants = {
-    hidden: {
-      opacity: 0,
-      x: "100vw",
-    },
-    visible: {
-      opacity: 1,
-      transition: { type: "spring", delay: 3 },
-      x: 0,
-    },
-  };
+  const isLarge = useIsLarge();
+  const gameOverVariants = !isLarge
+    ? {
+        hidden: {
+          opacity: 0,
+          x: "100vw",
+        },
+        visible: {
+          opacity: 1,
+          transition: { type: "spring", delay: 3 },
+          x: 0,
+        },
+      }
+    : {
+        hidden: {
+          opacity: 0,
+          x: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: { type: "spring", delay: 3 },
+          y: -275,
+        },
+      };
   return (
     <StyledGameOverModal>
       <motion.div

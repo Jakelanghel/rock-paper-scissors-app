@@ -5,6 +5,7 @@ export const StyledChooseHand = styled.div`
   flex-direction: column;
   gap: 3rem;
   position: relative;
+  margin-top: 6rem;
 
   .container-flex {
     display: flex;
@@ -23,5 +24,14 @@ export const StyledChooseHand = styled.div`
     top: 40px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  @media screen and (min-width: 950px) {
+    .container-flex {
+      gap: 5rem;
+    }
+    .triangle-img {
+      top: 100px;
+    }
   }
 `;
