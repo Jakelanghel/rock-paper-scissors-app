@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop](./public/readme-images/cd-desktop.png)
-![Mobile](./public/readme-images/cd-mobile.png)
+![Desktop](./public/readme-images/sc-desktop.png)
+![Mobile](./public/readme-images/sc-mobile.png)
 
 ### Links
 
