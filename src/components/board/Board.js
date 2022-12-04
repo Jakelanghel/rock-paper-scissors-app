@@ -69,7 +69,6 @@ const Board = () => {
     const playerHand = getHand(classArr);
     const computerHand = getComputerThrow();
     const data = getWinner(playerHand, computerHand);
-    console.log(data.winner);
     const score = gameData.score + data.x;
     setGameData((oldData) => ({
       ...oldData,
