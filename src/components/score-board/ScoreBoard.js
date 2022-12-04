@@ -7,7 +7,6 @@ const ScoreBoard = (props) => {
     <StyledScoreBoard>
       <div className="container-logo">
         <img src={images.logos.logo} alt="" className="logo" />
-        <h1>rock paper scissors</h1>
       </div>
 
       <div className="container-score">

@@ -105,6 +105,8 @@ const Board = () => {
 
   return (
     <StyledBoard>
+      <h1>rock paper scissors</h1>
+
       <ScoreBoard score={gameData.score} />
 
       {!gameData.playerThrow ? (

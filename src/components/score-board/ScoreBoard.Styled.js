@@ -11,10 +11,6 @@ export const StyledScoreBoard = styled.div`
   border-radius: 7px;
   padding: 1rem;
 
-  h1 {
-    display: none;
-  }
-
   .logo {
     width: 100px;
     margin-top: 5px;

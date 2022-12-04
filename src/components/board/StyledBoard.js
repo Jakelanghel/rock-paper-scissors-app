@@ -7,4 +7,8 @@ export const StyledBoard = styled.main`
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+
+  h1 {
+    display: none;
+  }
 `;
