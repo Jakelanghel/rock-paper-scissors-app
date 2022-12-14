@@ -7,7 +7,7 @@ import RulesModal from "../rules/rules-modal/RulesModal";
 
 import { StyledBoard } from "./StyledBoard";
 import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
-import { StyledBackDrop } from "../rules/rules-modal/StyledBackdrop";
+import { StyledBackDrop } from "../backdrop/StyledBackdrop";
 
 const Board = () => {
   const [gameData, setGameData] = useState({
@@ -33,7 +33,7 @@ const Board = () => {
 
   const getWinner = (playerHand, computerHand) => {
     const winData = { msg: "you win", x: 1, winner: "p" };
-    const loseData = { msg: "you lose", x: -1, winner: "c" };
+    const loseData = { msg: "you lose", x: 0, winner: "c" };
     const drawData = { msg: "draw", x: 0, winner: "d" };
     if (playerHand === computerHand) {
       return drawData;
