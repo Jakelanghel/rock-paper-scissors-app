@@ -11,6 +11,8 @@ export const StyledGameOverModal = styled.div`
   .game-over-txt {
     font-size: 3rem;
     font-weight: 700;
+    text-transform: capitalize;
+    color: var(--white);
   }
 
   button {

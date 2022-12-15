@@ -17,14 +17,15 @@ export const StyledScoreBoard = styled.div`
   }
 
   .container-score {
-    width: 75px;
+    width: 100px;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     background-color: var(--white);
-    padding: 0.4rem 2.5rem;
+    padding: 0.4rem 1rem;
   }
 
   .score {

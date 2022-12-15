@@ -8,7 +8,7 @@ export const StyledBoard = styled.main`
   align-items: center;
   padding: 2rem;
 
-  h1 {
+  .title {
     display: none;
   }
 `;

@@ -4,7 +4,7 @@ import { images } from "../../constants/images";
 import { motion } from "framer-motion";
 import { useIsLarge } from "../../hooks/UseMediaQuery";
 import Hand from "../hand/Hand";
-import GameOverModal from "../game-over/GameOverModal";
+// import GameOverModal from "../game-over/GameOverModal";
 
 const hands = images.hands;
 
@@ -111,7 +111,7 @@ const ShowChoice = (props) => {
         </div>
       </div>
 
-      <GameOverModal msg={props.msg} playAgain={props.playAgain} />
+      {/* <GameOverModal msg={props.msg} playAgain={props.playAgain} /> */}
     </StyledShowChoice>
   );
 };

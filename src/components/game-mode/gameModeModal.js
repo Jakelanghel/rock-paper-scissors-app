@@ -18,13 +18,26 @@ const GameModeModal = (props) => {
 
   const startGame = () => {
     const selected = document.querySelectorAll(".selected");
-    selected.forEach((element) => console.log(element.textContent));
+    if (selected.length === 2) {
+      const isClassic = selected[0].id === "classic" ? true : false;
+      const gameLength = parseInt(selected[1].textContent);
+      props.setGameModeData({
+        classic: isClassic,
+        length: gameLength,
+        started: true,
+      });
+    }
   };
+
   return (
     <StyledGameModeModal>
       <h2>Choose Game Mode</h2>
       <div className="container-btns">
-        <button className="mode-btn classic" onClick={selectGameMode}>
+        <button
+          className="mode-btn classic"
+          onClick={selectGameMode}
+          id="classic"
+        >
           Classic Rock Paper Scissors
         </button>
         <button className="mode-btn " onClick={selectGameMode}>

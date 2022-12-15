@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
         --score-text: hsl(229, 64%, 46%);
         --header-outline: hsl(217, 16%, 45%);
         --white: #EEEEEE;
-        --gray: rgb(221, 221, 221),
+        --gray: rgb(221, 221, 221);
 
         /* BACKGROUND  */
         --radialgradient-1: hsl(214, 47%, 23%);

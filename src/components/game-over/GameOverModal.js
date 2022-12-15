@@ -5,6 +5,7 @@ import { useIsLarge } from "../../hooks/UseMediaQuery";
 
 const GameOverModal = (props) => {
   const isLarge = useIsLarge();
+  const gameOver = props.round === props.gameLength;
   const gameOverVariants = !isLarge
     ? {
         hidden: {
@@ -37,7 +38,9 @@ const GameOverModal = (props) => {
         className="container-game-over"
       >
         <p className="game-over-txt">{props.msg}</p>
-        <button onClick={props.playAgain}>play again</button>
+        <button onClick={gameOver ? props.reset : props.playAgain}>
+          {gameOver ? "New Game" : "Next Round"}
+        </button>
       </motion.div>
     </StyledGameOverModal>
   );

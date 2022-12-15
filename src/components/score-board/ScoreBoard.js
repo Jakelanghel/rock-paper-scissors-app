@@ -10,9 +10,12 @@ const ScoreBoard = (props) => {
       </div>
 
       <div className="container-score">
-        <p className="score">
+        {/* <p className="score">
           score<span>{props.score}</span>
-        </p>
+        </p> */}
+        <p className="score">Round: {props.round}</p>
+        <p className="score">Player: {props.playerScore}</p>
+        <p className="score">House: {props.computerScore}</p>
       </div>
     </StyledScoreBoard>
   );

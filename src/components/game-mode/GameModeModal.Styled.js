@@ -64,7 +64,6 @@ export const StyledGameModeModal = styled.div`
 
   .option {
     font-size: 1.25rem;
-    /* border: solid 2px var(--dark-text); */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -79,9 +78,22 @@ export const StyledGameModeModal = styled.div`
     letter-spacing: 1px;
     margin: 0 auto;
     padding: 0.75rem 2.5rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+
+  .start-btn:hover {
+    background-color: var(--radialgradient-1);
+    color: var(--white);
+    opacity: 0.8;
   }
 
   .selected {
-    background-color: red;
+    background-color: var(--radialgradient-1);
+    color: var(--white);
+    opacity: 0.8;
   }
 `;
