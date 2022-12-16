@@ -10,8 +10,6 @@ function App() {
     started: false,
   });
 
-  console.log(gameModeData);
-
   return (
     <>
       <GlobalStyles />

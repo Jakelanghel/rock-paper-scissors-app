@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import ScoreBoard from "../score-board/ScoreBoard";
-import ChooseHand from "../chooseHand/ChooseHand";
+import ChooseHandClassic from "../chooseHand/ChooseHandClassic";
 import ShowChoice from "../show-choice/ShowChoice";
 import RulesModal from "../rules/rules-modal/RulesModal";
 import GameOverModal from "../game-over/GameOverModal";
@@ -9,8 +9,10 @@ import GameOverModal from "../game-over/GameOverModal";
 import { StyledBoard } from "./StyledBoard";
 import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
 import { StyledBackDrop } from "../backdrop/StyledBackdrop";
+import ChooseHandSpock from "../chooseHand/ChooseHandSpock";
 
 const Board = (props) => {
+  console.log(props.gameModeData.classic);
   const [gameData, setGameData] = useState({
     options: ["rock", "paper", "scissors"],
 
@@ -23,7 +25,7 @@ const Board = (props) => {
     winner: null,
     gameLength: props.gameModeData.length,
     round: 1,
-    isClassic: props.gameModeData.isClassic,
+    isClassic: props.gameModeData.classic,
   });
 
   const getHand = (classArr) => {
@@ -113,6 +115,15 @@ const Board = (props) => {
     }));
   };
 
+  const setGameMode = (classic) => {
+    // console.log(classic);
+    return classic ? (
+      <ChooseHandClassic handleClick={handleClick} />
+    ) : (
+      <ChooseHandSpock handleClick={handleClick} />
+    );
+  };
+
   return (
     <StyledBoard>
       <h1 className="title">rock paper scissors</h1>
@@ -121,8 +132,10 @@ const Board = (props) => {
         computerScore={gameData.computerScore}
         round={gameData.round}
       />
+
       {!gameData.playerThrow ? (
-        <ChooseHand handleClick={handleClick} />
+        // <ChooseHandClassic handleClick={handleClick} />
+        setGameMode(gameData.isClassic)
       ) : (
         <ShowChoice
           playerHand={gameData.playerThrow}

@@ -1,12 +1,18 @@
 import React from "react";
-import { images } from "../../constants/images";
-import { StyledChooseHand } from "./ChooseHand.Styled";
-import Hand from "../hand/Hand";
+import { StyledChooseHandSpock } from "./ChooseHandSpock.Styled";
 
-const ChooseHand = (props) => {
+const ChooseHandSpock = () => {
   return (
-    <StyledChooseHand>
-      <div className="container-flex">
+    <StyledChooseHandSpock>
+      <div className="container-bg"></div>
+    </StyledChooseHandSpock>
+  );
+};
+
+export default ChooseHandSpock;
+
+{
+  /* <div className="container-flex">
         <Hand
           bgClass="paper-bg"
           hand="paper"
@@ -34,9 +40,5 @@ const ChooseHand = (props) => {
         src={images.backgrounds.bgTriangle}
         alt=""
         className="triangle-img"
-      />
-    </StyledChooseHand>
-  );
-};
-
-export default ChooseHand;
+      /> */
+}
