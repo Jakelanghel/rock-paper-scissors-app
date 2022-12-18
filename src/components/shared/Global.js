@@ -64,24 +64,40 @@ export const GlobalStyles = createGlobalStyle`
     .rock-bg {
         background-image: linear-gradient(
                 120deg,
-                hsl(349, 71%, 52%),
-                hsl(349, 70%, 56%)
+                var(--rock-gradient-1),
+                var(--rock-gradient-2)
             );
         }
 
     .paper-bg {
         background-image: linear-gradient(
                 120deg,
-                hsl(230, 89%, 62%),
-                hsl(230, 89%, 65%)
+                var(--paper-gradient-1),
+                var(--paper-gradient-2)
             );
     }
 
     .scissors-bg {
         background-image: linear-gradient(
                 120deg,
-                hsl(39, 89%, 49%),
-                hsl(40, 84%, 53%)
+                var(--scissors-gradient-1),
+                var(--scissors-gradient-2)
+            );
+    }
+
+    .spock-bg {
+        background-image: linear-gradient(
+                120deg,
+                var(--cyan-1),
+                var(--cyan-2)
+            );
+    }
+
+    .lizard-bg {
+        background-image: linear-gradient(
+                120deg,
+                var(--lizard-gradient-1),
+                var(--lizard-gradient-2)
             );
     }
 `;

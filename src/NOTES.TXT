@@ -7,11 +7,3 @@ Bonus:
  scissors cuts paper. decapitates lizard
  lizard posions spock, lizard eats paper
  spock smashes scissors, vaporizes rock
-
- ROCK
- wins: 
- loses:
-
- PAPER
- wins: 
- loses:

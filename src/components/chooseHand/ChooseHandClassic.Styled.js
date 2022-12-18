@@ -19,6 +19,7 @@ export const StyledChooseHand = styled.div`
   }
 
   .triangle-img {
+    width: 275px;
     position: absolute;
     z-index: 0;
     top: 40px;

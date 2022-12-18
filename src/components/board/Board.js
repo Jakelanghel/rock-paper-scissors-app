@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import ScoreBoard from "../score-board/ScoreBoard";
-import ChooseHandClassic from "../chooseHand/ChooseHandClassic";
+import ChooseHandClassic from "../chooseHand/ChooseHand";
 import ShowChoice from "../show-choice/ShowChoice";
 import RulesModal from "../rules/rules-modal/RulesModal";
 import GameOverModal from "../game-over/GameOverModal";
@@ -9,12 +9,12 @@ import GameOverModal from "../game-over/GameOverModal";
 import { StyledBoard } from "./StyledBoard";
 import { StyledRulesBtn } from "../rules/rules-btn/RulesBtn.Styled";
 import { StyledBackDrop } from "../backdrop/StyledBackdrop";
-import ChooseHandSpock from "../chooseHand/ChooseHandSpock";
 
 const Board = (props) => {
-  console.log(props.gameModeData.classic);
   const [gameData, setGameData] = useState({
-    options: ["rock", "paper", "scissors"],
+    options: props.gameModeData.classic
+      ? ["rock", "paper", "scissors"]
+      : ["rock", "paper", "scissors", "lizard", "spock"],
 
     playerThrow: null,
     computerThrow: null,
@@ -39,29 +39,49 @@ const Board = (props) => {
   };
 
   const getWinner = (playerHand, computerHand) => {
-    const winData = { msg: "you win", pScore: 1, cScore: 0, winner: "p" };
-    const loseData = { msg: "you lose", pScore: 0, cScore: 1, winner: "c" };
-    const drawData = { msg: "draw", pScore: 0, cScore: 0, winner: "d" };
-    if (playerHand === computerHand) {
-      return drawData;
-    } else if (playerHand === "rock") {
-      if (computerHand === "scissors") {
-        return winData;
-      } else {
-        return loseData;
+    const winnerData = {
+      win: { msg: "you win", pScore: 1, cScore: 0, winner: "p" },
+      lose: { msg: "you lose", pScore: 0, cScore: 1, winner: "c" },
+      draw: { msg: "draw", pScore: 0, cScore: 0, winner: "d" },
+    };
+
+    const draw = playerHand === computerHand;
+    console.log(draw);
+
+    if (!draw) {
+      if (playerHand === "rock") {
+        return computerHand === "scissors"
+          ? winnerData.win
+          : computerHand === "lizard"
+          ? winnerData.win
+          : winnerData.lose;
+      } else if (playerHand === "paper") {
+        return computerHand === "rock"
+          ? winnerData.win
+          : computerHand === "spock"
+          ? winnerData.win
+          : winnerData.lose;
+      } else if (playerHand === "scissors") {
+        return computerHand === "paper"
+          ? winnerData.win
+          : computerHand === "lizard"
+          ? winnerData.win
+          : winnerData.lose;
+      } else if (playerHand === "lizard") {
+        return computerHand === "spock"
+          ? winnerData.win
+          : computerHand === "paper"
+          ? winnerData.win
+          : winnerData.lose;
+      } else if (playerHand === "spock") {
+        return computerHand === "scissors"
+          ? winnerData.win
+          : computerHand === "rock"
+          ? winnerData.win
+          : winnerData.lose;
       }
-    } else if (playerHand === "paper") {
-      if (computerHand === "rock") {
-        return winData;
-      } else {
-        return loseData;
-      }
-    } else if (playerHand === "scissors") {
-      if (computerHand === "paper") {
-        return winData;
-      } else {
-        return loseData;
-      }
+    } else {
+      return winnerData.draw;
     }
   };
 
@@ -75,6 +95,7 @@ const Board = (props) => {
     const classArr = Array.from(e.target.classList);
     const playerHand = getHand(classArr);
     const computerHand = getComputerThrow();
+    console.log(playerHand, computerHand);
     const data = getWinner(playerHand, computerHand);
     setGameData((oldData) => ({
       ...oldData,
@@ -115,15 +136,6 @@ const Board = (props) => {
     }));
   };
 
-  const setGameMode = (classic) => {
-    // console.log(classic);
-    return classic ? (
-      <ChooseHandClassic handleClick={handleClick} />
-    ) : (
-      <ChooseHandSpock handleClick={handleClick} />
-    );
-  };
-
   return (
     <StyledBoard>
       <h1 className="title">rock paper scissors</h1>
@@ -134,8 +146,10 @@ const Board = (props) => {
       />
 
       {!gameData.playerThrow ? (
-        // <ChooseHandClassic handleClick={handleClick} />
-        setGameMode(gameData.isClassic)
+        <ChooseHandClassic
+          handleClick={handleClick}
+          isClassic={gameData.isClassic}
+        />
       ) : (
         <ShowChoice
           playerHand={gameData.playerThrow}
@@ -159,7 +173,10 @@ const Board = (props) => {
       <StyledRulesBtn onClick={toggleRules}>Rules</StyledRulesBtn>
       {gameData.showRules && (
         <StyledBackDrop>
-          <RulesModal handleClick={toggleRules} />
+          <RulesModal
+            handleClick={toggleRules}
+            isClassic={props.gameModeData.isClassic}
+          />
         </StyledBackDrop>
       )}
     </StyledBoard>

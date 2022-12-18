@@ -7,7 +7,10 @@ const RulesModal = (props) => {
     <StyledRulesModal>
       <h1>rules</h1>
       <div className="img-container">
-        <img src={images.rules.rules} alt="rules" />
+        <img
+          src={props.isClassic ? images.rules.rules : images.rules.bonusRules}
+          alt="rules"
+        />
       </div>
 
       <img
