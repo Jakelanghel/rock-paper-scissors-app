@@ -51,12 +51,12 @@ export const StyledHand = styled.div`
   }
 
   @media screen and (min-width: 950px) {
-    width: 225px;
-    height: 225px;
+    width: 150px;
+    height: 150px;
 
     .hand-bg {
-      width: 180px;
-      height: 180px;
+      width: 125px;
+      height: 125px;
     }
 
     .hand-img {

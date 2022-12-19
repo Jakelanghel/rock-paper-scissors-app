@@ -42,6 +42,8 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
+   
+
     * {
         box-sizing: border-box;
         font-family: 'Barlow Semi Condensed', sans-serif;
@@ -51,15 +53,14 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: 'Barlow Semi Condensed', sans-serif;
+
     }
 
-    .container-app {
-        min-height: 100vh;
-        width: 100vw;
-        background: rgb(31,55,86);
-        background: radial-gradient(circle at top, rgba(29, 48, 80, 1) 53%, rgba(20,21,57,1) 98%);
-        
+    html, 
+    body {
+        height: 100%;
     }
+
 
     .rock-bg {
         background-image: linear-gradient(

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GlobalStyles } from "./components/shared/Global.js";
 import Board from "./components/board/Board.js";
 import GameModeModal from "./components/game-mode/gameModeModal";
+import { StyledContainerApp } from "./components/container-app/ContainerApp.Styled.js";
 
 function App() {
   const [gameModeData, setGameModeData] = useState({
@@ -11,19 +12,14 @@ function App() {
   });
 
   return (
-    <>
+    <StyledContainerApp>
       <GlobalStyles />
-      <div className="container-app">
-        {!gameModeData.started ? (
-          <GameModeModal setGameModeData={setGameModeData} />
-        ) : (
-          <Board
-            gameModeData={gameModeData}
-            setGameModeData={setGameModeData}
-          />
-        )}
-      </div>
-    </>
+      {!gameModeData.started ? (
+        <GameModeModal setGameModeData={setGameModeData} />
+      ) : (
+        <Board gameModeData={gameModeData} setGameModeData={setGameModeData} />
+      )}
+    </StyledContainerApp>
   );
 }
 

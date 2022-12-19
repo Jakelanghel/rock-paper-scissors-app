@@ -1,16 +1,9 @@
 import styled from "styled-components";
 
 export const StyledGameModeModal = styled.div`
-  width: 90%;
-  height: 450px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
+  width: 85%;
+  max-width: 450px;
+  height: 500px;
   text-align: center;
   border-radius: 10px;
   background-color: var(--white);
@@ -18,16 +11,20 @@ export const StyledGameModeModal = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  padding: 1.5rem 0;
+  padding: 2.5rem 1.5rem;
 
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: var(--white) 0px 10px 100px -30px;
+  margin-top: auto;
+  margin-bottom: auto;
 
   h2 {
     font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .container-btns {
+    margin-bottom: 1.5rem;
   }
 
   .mode-btn {
@@ -60,13 +57,11 @@ export const StyledGameModeModal = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 
   .option {
     font-size: 1.25rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 50%;
     border-radius: 50px;
     padding: 1rem 1.5rem;
@@ -80,15 +75,22 @@ export const StyledGameModeModal = styled.div`
     padding: 0.75rem 2.5rem;
     border: none;
     border-radius: 10px;
+  }
+
+  .option:hover,
+  .start-btn:hover,
+  .mode-btn:hover {
+    background-color: var(--radialgradient-1);
+    color: var(--white);
+    opacity: 0.7;
+  }
+
+  .option,
+  .start-btn,
+  .mode-btn {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  }
-
-  .start-btn:hover {
-    background-color: var(--radialgradient-1);
-    color: var(--white);
-    opacity: 0.8;
   }
 
   .selected {

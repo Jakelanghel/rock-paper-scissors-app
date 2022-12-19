@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const StyledChooseHand = styled.div`
+export const StyledChooseHandClassic = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
   position: relative;
-  margin-top: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 10rem;
 
   .container-flex {
     display: flex;

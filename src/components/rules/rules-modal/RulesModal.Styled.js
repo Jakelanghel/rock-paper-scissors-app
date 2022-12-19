@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledRulesModal = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -22,8 +22,9 @@ export const StyledRulesModal = styled.div`
   }
 
   @media screen and (min-width: 950px) {
-    width: 400px;
-    height: 450px;
+    width: 450px;
+    min-height: 0;
+    height: 500px;
     padding: 3rem;
     align-items: flex-start;
     border-radius: 10px;

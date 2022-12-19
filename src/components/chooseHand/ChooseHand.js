@@ -1,12 +1,12 @@
 import React from "react";
 import { images } from "../../constants/images";
-import { StyledChooseHand } from "./ChooseHandClassic.Styled";
+import { StyledChooseHandClassic } from "./ChooseHandClassic.Styled";
 import { StyledChooseHandSpock } from "./ChooseHandSpock.Styled";
 import Hand from "../hand/Hand";
 
 const ChooseHandClassic = (props) => {
   return props.isClassic ? (
-    <StyledChooseHand>
+    <StyledChooseHandClassic>
       <div className="container-flex">
         <Hand
           bgClass="paper-bg"
@@ -36,7 +36,7 @@ const ChooseHandClassic = (props) => {
         alt=""
         className="triangle-img"
       />
-    </StyledChooseHand>
+    </StyledChooseHandClassic>
   ) : (
     <StyledChooseHandSpock>
       <div className="container-pentagon">
