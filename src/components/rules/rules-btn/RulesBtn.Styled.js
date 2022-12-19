@@ -10,7 +10,6 @@ export const StyledRulesBtn = styled.button`
   background-color: transparent;
 
   padding: 0.75rem 2.75rem;
-  margin-top: auto;
 
   border: solid 1px var(--white);
   border-radius: 10px;

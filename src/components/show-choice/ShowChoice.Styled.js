@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const StyledShowChoice = styled.div`
   width: 100%;
-  margin-top: 7rem;
-  max-width: 500px;
+  margin-top: 7.75rem;
 
   .container-hands {
     width: 100%;
@@ -46,16 +45,16 @@ export const StyledShowChoice = styled.div`
 
   @media screen and (min-width: 950px) {
     max-width: 1000px;
-    margin-top: 3rem;
+    margin-top: 7rem;
 
     .container {
       width: 45%;
     }
 
     .empty {
-      width: 170px;
-      height: 170px;
-      margin-top: 6rem;
+      width: 130px;
+      height: 130px;
+      margin-top: 4.5rem;
     }
 
     .empty-computer {

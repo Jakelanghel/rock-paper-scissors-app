@@ -26,7 +26,7 @@ const GameOverModal = (props) => {
         visible: {
           opacity: 1,
           transition: { type: "spring", delay: 3 },
-          y: -275,
+          y: -200,
         },
       };
   return (

@@ -4,7 +4,6 @@ import { images } from "../../constants/images";
 import { motion } from "framer-motion";
 import { useIsLarge } from "../../hooks/UseMediaQuery";
 import Hand from "../hand/Hand";
-// import GameOverModal from "../game-over/GameOverModal";
 
 const hands = images.hands;
 

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledGameOverModal = styled.div`
   width: 100%;
-  margin-top: 8rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 
   .container-game-over {
     text-align: center;

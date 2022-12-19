@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import ScoreBoard from "../score-board/ScoreBoard";
-import ChooseHandClassic from "../chooseHand/ChooseHand";
+import ChooseHand from "../chooseHand/ChooseHand";
 import ShowChoice from "../show-choice/ShowChoice";
 import RulesModal from "../rules/rules-modal/RulesModal";
 import GameOverModal from "../game-over/GameOverModal";
@@ -146,10 +146,7 @@ const Board = (props) => {
       />
 
       {!gameData.playerThrow ? (
-        <ChooseHandClassic
-          handleClick={handleClick}
-          isClassic={gameData.isClassic}
-        />
+        <ChooseHand handleClick={handleClick} isClassic={gameData.isClassic} />
       ) : (
         <ShowChoice
           playerHand={gameData.playerThrow}
